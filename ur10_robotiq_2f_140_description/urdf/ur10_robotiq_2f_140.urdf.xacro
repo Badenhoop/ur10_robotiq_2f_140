@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
 
   <xacro:include filename="$(find ur_description)/urdf/ur10.urdf.xacro" />
-  <xacro:include filename="$(find robotiq_2f_140_gripper_visualization)/urdf/robotiq_arg2f_140_model_macro.xacro" />
+  <xacro:include filename="$(find ur10_robotiq_2f_140_description)/urdf/robotiq_arg2f_140_model_macro.xacro" />
 
   <xacro:macro name="ur10_robotiq_2f_140_robot" params="prefix joint_limited
     arm_transmission_hw_interface:=hardware_interface/PositionJointInterface
