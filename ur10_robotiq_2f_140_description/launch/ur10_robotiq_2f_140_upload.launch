@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="limited" default="false" doc="If true, limits joint range [-PI, PI] on all joints." />
+  <arg name="transmission_hw_interface" default="hardware_interface/EffortJointInterface" />
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur10_robotiq_2f_140_description)/urdf/ur10_robotiq_2f_140_robot.urdf.xacro' 
+    limited:=$(arg limited) transmission_hw_interface:=$(arg transmission_hw_interface)" />
+</launch>

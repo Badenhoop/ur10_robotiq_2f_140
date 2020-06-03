@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="limited" default="true"  doc="If true, limits joint range [-PI, PI] on all joints." />
+  <arg name="paused" default="true" doc="Starts gazebo in paused mode" />
+  <arg name="gui" default="true" doc="Starts gazebo gui" />
+  
+  <!-- startup simulated world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="worlds/empty.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <!-- send robot urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur10_robotiq_2f_140_description)/urdf/ur10_robotiq_2f_140_robot.urdf.xacro' 
+    limited:=$(arg limited) 
+    arm_transmission_hw_interface:=hardware_interface/EffortJointInterface
+    gripper_transmission_hw_interface:=hardware_interface/PositionJointInterface" />
+
+  <!-- controller parameters -->
+  <rosparam file="$(find ur10_robotiq_2f_140_gazebo)/cfg/controllers.yaml" command="load"/>
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -z 0.1" respawn="false" output="screen" />
+
+  <!-- start controllers -->
+  <node name="spawn_controllers" pkg="controller_manager" type="controller_manager" 
+    args="spawn 
+      shoulder_pan_joint_controller
+      shoulder_lift_joint_controller
+      elbow_joint_controller
+      wrist_1_joint_controller
+      wrist_2_joint_controller
+      wrist_3_joint_controller
+      gripper_controller 
+      joint_state_controller" respawn="false" output="screen"/>
+
+  <!-- robot state publisher for tf -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" type="string" value="" />
+  </node>
+
+  <!-- fake Calibration -->
+  <node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
+        args="pub /calibrated std_msgs/Bool true" />
+
+</launch>
