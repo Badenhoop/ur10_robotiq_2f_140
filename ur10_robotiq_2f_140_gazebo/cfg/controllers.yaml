@@ -57,17 +57,6 @@ wrist_3_joint_controller:
   joint: wrist_3_joint
   pid: {p: 1.0, d: 0.05, i: 0.01, i_clamp: 1000}
 
-# gripper_controller:
-#   type: effort_controllers/GripperActionController
-#   joint: finger_joint
-#   action_monitor_rate: 20
-#   goal_tolerance: 0.005
-#   max_effort: 1000
-#   stall_velocity_threshold: 0.001
-#   stall_timeout: 1.0
-#   gains:
-#     finger_joint: {p: 1.0, d: 0.5, i: 0.1, i_clamp: 1.0}
-
 gripper_controller:
   type: position_controllers/JointPositionController
   joint: finger_joint

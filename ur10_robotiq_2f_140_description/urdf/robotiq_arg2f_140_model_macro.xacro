@@ -32,7 +32,7 @@
       </collision>
     </link>
     <gazebo reference="${prefix}${fingerprefix}_outer_knuckle">
-      <material>Gazebo/FlatBlack</material>
+      <material>Gazebo/DarkGrey</material>
     </gazebo>
   </xacro:macro>
 
@@ -134,7 +134,7 @@
       </collision>
     </link>
     <gazebo reference="${prefix}${fingerprefix}_inner_finger">
-      <material>Gazebo/White</material>
+      <material>Gazebo/DarkGrey</material>
     </gazebo>
   </xacro:macro>
 
@@ -169,7 +169,7 @@
       </collision>
     </link>
     <gazebo reference="${prefix}${fingerprefix}_inner_finger_pad">
-      <material>Gazebo/White</material>
+      <material>Gazebo/DarkGrey</material>
     </gazebo>
   </xacro:macro>
 
