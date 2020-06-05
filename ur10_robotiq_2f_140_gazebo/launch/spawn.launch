@@ -1,15 +1,13 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="limited" default="true"  doc="If true, limits joint range [-PI, PI] on all joints." />
-  <arg name="paused" default="true" doc="Starts gazebo in paused mode" />
-  <arg name="gui" default="true" doc="Starts gazebo gui" />
-  
-  <!-- startup simulated world -->
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" default="worlds/empty.world"/>
-    <arg name="paused" value="$(arg paused)"/>
-    <arg name="gui" value="$(arg gui)"/>
-  </include>
+  <arg name="limited" default="true" doc="If true, limits joint range [-PI, PI] on all joints." />
+  <arg name="robot_name" default="robot" doc="The name of the spawned model in gazebo. Must be unique across the world." />
+  <arg name="x" default="0.1" />
+  <arg name="y" default="0.0" />
+  <arg name="z" default="0.0" />
+  <arg name="roll" default="0.0" />
+  <arg name="pitch" default="0.0" />
+  <arg name="yaw" default="0.0" />
 
   <!-- send robot urdf to param server -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur10_robotiq_2f_140_description)/urdf/ur10_robotiq_2f_140_robot.urdf.xacro' 
@@ -21,7 +19,9 @@
   <rosparam file="$(find ur10_robotiq_2f_140_gazebo)/cfg/controllers.yaml" command="load"/>
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -z 0.1" respawn="false" output="screen" />
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" 
+    args="-urdf -param robot_description -model $(arg robot_name) -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)" 
+    respawn="false" output="screen" />
 
   <!-- start controllers -->
   <node name="spawn_controllers" pkg="controller_manager" type="controller_manager" 
