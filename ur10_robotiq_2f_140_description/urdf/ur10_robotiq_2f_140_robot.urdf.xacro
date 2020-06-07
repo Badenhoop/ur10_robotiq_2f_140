@@ -14,7 +14,7 @@
     <xacro:arg name="arm_transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
 	<xacro:arg name="gripper_transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
 
-    <!-- MoveIt! seems to have difficulties with finding plans for the UR with full  joint limits [-2pi, 2pi]. 
+    <!-- MoveIt! seems to have difficulties with finding plans for the UR with full joint limits [-2pi, 2pi]. 
          The limited version uses joint limits restricted to [-pi,pi].
     -->
     <xacro:arg name="limited" default="false"/>

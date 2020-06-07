@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="limited" default="true" doc="If true, limits joint range [-PI, PI] on all joints." />
+  <arg name="limited" default="false" doc="If true, limits joint range [-PI, PI] on all joints." />
   <arg name="robot_name" default="robot" doc="The name of the spawned model in gazebo. Must be unique across the world." />
   <arg name="tf_prefix" default="" doc="The tf prefix used by the robot_state_publisher." />
   <arg name="x" default="0.1" />
