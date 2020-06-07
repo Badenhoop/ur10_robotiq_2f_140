@@ -2,6 +2,7 @@
 <launch>
   <arg name="pipeline" default="ompl" />
   <arg name="debug" default="false" />
+  <arg name="use_rviz" default="true" />
 
   <rosparam command="load" file="$(find ur10_robotiq_2f_140_moveit_config)/config/joint_names.yaml"/>
 
@@ -13,6 +14,11 @@
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
     <arg name="pipeline" value="$(arg pipeline)"/>
+  </include>
+
+  <include file="$(find ur10_robotiq_2f_140_moveit_config)/launch/moveit_rviz.launch" if="$(arg use_rviz)">
+    <arg name="rviz_config" value="$(find ur10_robotiq_2f_140_moveit_config)/launch/moveit.rviz"/>
+    <arg name="debug" value="$(arg debug)"/>
   </include>
 
 </launch>
