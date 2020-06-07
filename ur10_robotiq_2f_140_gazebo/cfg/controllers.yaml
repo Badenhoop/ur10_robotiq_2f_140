@@ -57,6 +57,18 @@ wrist_3_joint_controller:
   joint: wrist_3_joint
   pid: {p: 1.0, d: 0.05, i: 0.01, i_clamp: 1000}
 
+gripper_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - finger_joint
+  constraints:
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.05
+    finger_joint: {trajectory: 0.01, goal: 0.001}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
 gripper_controller:
   type: position_controllers/JointPositionController
   joint: finger_joint

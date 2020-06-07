@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.1.3)
 project(ur10_robotiq_2f_140_moveit_config)
 
 find_package(catkin REQUIRED)

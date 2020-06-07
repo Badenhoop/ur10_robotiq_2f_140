@@ -3,7 +3,7 @@
   <name>ur10_robotiq_2f_140_moveit_config</name>
   <version>0.3.0</version>
   <description>
-     An automatically generated package with all the configuration and launch files for using the ur10_robotiq_2f_140 with the MoveIt! Motion Planning Framework
+     An automatically generated package with all the configuration and launch files for using the ur10_robotiq_2f_140 with the MoveIt Motion Planning Framework
   </description>
   <author email="philipp.badenhoop@hellocodeblog.com">Philipp Badenhoop</author>
   <maintainer email="philipp.badenhoop@hellocodeblog.com">Philipp Badenhoop</maintainer>
