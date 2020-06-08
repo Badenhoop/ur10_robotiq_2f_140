@@ -14,11 +14,12 @@
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur10_robotiq_2f_140_description)/urdf/ur10_robotiq_2f_140_robot.urdf.xacro' 
     limited:=$(arg limited) 
     arm_transmission_hw_interface:=hardware_interface/EffortJointInterface
-    gripper_transmission_hw_interface:=hardware_interface/PositionJointInterface" />
+    gripper_transmission_hw_interface:=hardware_interface/PositionJointInterface
+    x:=$(arg x) y:=$(arg y) z:=$(arg z) roll:=$(arg roll) pitch:=$(arg pitch) yaw:=$(arg yaw)" />
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" 
-    args="-urdf -param robot_description -model $(arg robot_name) -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)" 
+    args="-urdf -param robot_description -model $(arg robot_name)" 
     respawn="false" output="screen" />
 
   <!-- controller parameters -->

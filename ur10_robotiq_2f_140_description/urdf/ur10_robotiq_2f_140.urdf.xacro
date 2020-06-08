@@ -36,6 +36,25 @@
       <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
     </joint>
 
+    <!-- grasp plugin for fixing unstable grasping physics -->
+    <gazebo>
+      <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+        <arm>
+          <arm_name>ur10-arm</arm_name>
+          <palm_link>${prefix}wrist_3_link</palm_link>
+          <gripper_link>${prefix}left_inner_finger</gripper_link>
+          <gripper_link>${prefix}right_inner_finger</gripper_link>
+        </arm>
+        <forces_angle_tolerance>100</forces_angle_tolerance>
+        <update_rate>4</update_rate>
+        <grip_count_threshold>4</grip_count_threshold>
+        <max_grip_count>8</max_grip_count>
+        <release_tolerance>0.005</release_tolerance>
+        <disable_collisions_on_attach>false</disable_collisions_on_attach>
+        <contact_topic>__default_topic__</contact_topic>
+      </plugin>
+    </gazebo>
+
   </xacro:macro>
 
 </robot>

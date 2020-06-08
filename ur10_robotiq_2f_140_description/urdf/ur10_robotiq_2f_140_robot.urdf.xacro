@@ -19,6 +19,14 @@
     -->
     <xacro:arg name="limited" default="false"/>
 
+	<!-- position and rotation of the robot in the world frame -->
+	<xacro:arg name="x" default="0.0"/>
+	<xacro:arg name="y" default="0.0"/>
+	<xacro:arg name="z" default="0.0"/>
+	<xacro:arg name="roll" default="0.0"/>
+	<xacro:arg name="pitch" default="0.0"/>
+	<xacro:arg name="yaw" default="0.0"/>
+
 	<xacro:include filename="$(find ur10_robotiq_2f_140_description)/urdf/ur10_robotiq_2f_140.urdf.xacro" />
 
 	<!-- universal robot UR10 with Robotiq 2f 140 gripper -->
@@ -34,7 +42,7 @@
 	<joint name="world_joint" type="fixed">
 		<parent link="world" />
 		<child link = "base_link" />
-		<origin xyz="0 0 0" rpy="0 0 0" />
+		<origin xyz="$(arg x) $(arg y) $(arg z)" rpy="$(arg roll) $(arg pitch) $(arg yaw)" />
 	</joint>
 
 	<!-- load ros_control gazebo plugin -->
