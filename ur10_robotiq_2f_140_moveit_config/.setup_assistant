@@ -8,4 +8,4 @@ moveit_setup_assistant_config:
   CONFIG:
     author_name: Philipp Badenhoop
     author_email: philipp.badenhoop@hellocodeblog.com
-    generated_timestamp: 1591514594
+    generated_timestamp: 1591866210

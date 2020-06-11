@@ -42,7 +42,8 @@
       wrist_1_joint_controller
       wrist_2_joint_controller
       wrist_3_joint_controller
-      gripper_controller"
+      left_finger_joint_controller
+      right_finger_joint_controller"
     respawn="false" output="screen" />
 
   <!-- robot state publisher for tf -->
