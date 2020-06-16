@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ur10_robotiq_2f_140</name>
+  <version>0.0.0</version>
+  <description>Meta package that contains all essential package of ur10_robotiq_2f_140</description>
+
+  <maintainer email="philipp.badenhoop@hellocodeblog.com">Philipp Badenhoop</maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>ur10_robotiq_2f_140_description</exec_depend>
+  <exec_depend>ur10_robotiq_2f_140_gazebo</exec_depend>
+  <exec_depend>ur10_robotiq_2f_140_moveit_config</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
