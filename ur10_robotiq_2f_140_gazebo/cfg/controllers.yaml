@@ -8,7 +8,7 @@ arm_trajectory_controller:
     - wrist_2_joint
     - wrist_3_joint
   constraints:
-    goal_time: 0.6
+    goal_time: 60.0
     stopped_velocity_tolerance: 0.05
     shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
     shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
@@ -63,7 +63,7 @@ gripper_trajectory_controller:
     - left_finger_joint
     - right_finger_joint
   constraints:
-    goal_time: 0.6
+    goal_time: 5.0
     stopped_velocity_tolerance: 0.05
     left_finger_joint: {trajectory: 0.01, goal: 0.001}
     right_finger_joint: {trajectory: 0.01, goal: 0.001}
