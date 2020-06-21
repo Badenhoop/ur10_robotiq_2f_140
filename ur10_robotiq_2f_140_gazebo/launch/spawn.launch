@@ -3,12 +3,20 @@
   <arg name="limited" default="false" doc="If true, limits joint range [-PI, PI] on all joints." />
   <arg name="robot_name" default="robot" doc="The name of the spawned model in gazebo. Must be unique across the world." />
   <arg name="tf_prefix" default="" doc="The tf prefix used by the robot_state_publisher." />
-  <arg name="x" default="0.1" />
+  <arg name="x" default="0.0" />
   <arg name="y" default="0.0" />
-  <arg name="z" default="0.0" />
+  <arg name="z" default="0.1" />
   <arg name="roll" default="0.0" />
   <arg name="pitch" default="0.0" />
   <arg name="yaw" default="0.0" />
+  <arg name="shoulder_pan_joint" default="0.0" />
+  <arg name="shoulder_lift_joint" default="0.0" />
+  <arg name="elbow_joint" default="0.0" />
+  <arg name="wrist_1_joint" default="0.0" />
+  <arg name="wrist_2_joint" default="0.0" />
+  <arg name="wrist_3_joint" default="0.0" />
+  <arg name="left_finger_joint" default="0.0" />
+  <arg name="right_finger_joint" default="0.0" />
 
   <!-- send robot urdf to param server -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur10_robotiq_2f_140_description)/urdf/ur10_robotiq_2f_140_robot.urdf.xacro' 
@@ -19,7 +27,15 @@
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="$(arg robot_name)_spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" 
-    args="-urdf -param robot_description -model $(arg robot_name)" 
+    args="-urdf -param robot_description -model $(arg robot_name)
+    -J shoulder_pan_joint $(arg shoulder_pan_joint)
+    -J shoulder_lift_joint $(arg shoulder_lift_joint)
+    -J elbow_joint $(arg elbow_joint)
+    -J wrist_1_joint $(arg wrist_1_joint)
+    -J wrist_2_joint $(arg wrist_2_joint)
+    -J wrist_3_joint $(arg wrist_3_joint)
+    -J left_finger_joint $(arg left_finger_joint)
+    -J right_finger_joint $(arg right_finger_joint)" 
     respawn="false" output="screen" />
 
   <!-- controller parameters -->
