@@ -6,3 +6,7 @@
     local-name: roboticsgroup_gazebo_plugins
     uri: 'https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins'
     version: master
+- git:
+    local-name: gazebo-pkgs
+    uri: 'https://github.com/Badenhoop/gazebo-pkgs'
+    version: master

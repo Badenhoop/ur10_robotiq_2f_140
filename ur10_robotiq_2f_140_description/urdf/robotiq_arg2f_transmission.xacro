@@ -21,28 +21,28 @@
     </transmission>
     <gazebo>
       <!-- loading plugin: mimic joints works in gazebo now-->
-      <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="${prefix}mimic_robotiq_140_2">
+      <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="${prefix}mimic_robotiq_140_1">
         <joint>${prefix}left_finger_joint</joint>
         <mimicJoint>${prefix}left_inner_finger_joint</mimicJoint>
         <multiplier>1.0</multiplier> 
         <offset>-0.02</offset>
         <hasPID />
       </plugin>
-      <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="${prefix}mimic_robotiq_140_3">
+      <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="${prefix}mimic_robotiq_140_2">
         <joint>${prefix}left_finger_joint</joint>
         <mimicJoint>${prefix}left_inner_knuckle_joint</mimicJoint>
         <multiplier>-1.0</multiplier>
         <offset>0.0</offset>
         <hasPID />
       </plugin>
-      <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="${prefix}mimic_robotiq_140_1">
+      <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="${prefix}mimic_robotiq_140_3">
         <joint>${prefix}right_finger_joint</joint>
         <mimicJoint>${prefix}right_inner_finger_joint</mimicJoint>
         <multiplier>1.0</multiplier>
         <offset>-0.02</offset>
         <hasPID />
       </plugin>
-      <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="${prefix}mimic_robotiq_140_5">
+      <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="${prefix}mimic_robotiq_140_4">
         <joint>${prefix}right_finger_joint</joint>
         <mimicJoint>${prefix}right_inner_knuckle_joint</mimicJoint>
         <multiplier>-1.0</multiplier>
