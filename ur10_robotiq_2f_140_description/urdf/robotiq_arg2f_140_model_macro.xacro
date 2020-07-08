@@ -262,10 +262,20 @@
     <xacro:finger_links prefix="${prefix}" fingerprefix="right" stroke="140"/>
   </xacro:macro>
 
+  <xacro:macro name="tcp" params="prefix">
+    <link name="${prefix}tcp" />
+    <joint name="${prefix}tcp_joint" type="fixed">
+      <origin xyz="0 0 0.177" rpy="0 0 0" />
+      <parent link="${prefix}robotiq_arg2f_base_link" />
+      <child link="${prefix}tcp" />
+    </joint>
+  </xacro:macro>
+
   <xacro:macro name="robotiq_arg2f_140" params="prefix transmission_hw_interface:=hardware_interface/PositionJointInterface">
     <xacro:robotiq_arg2f_base_link prefix="${prefix}"/>
     <xacro:left_finger prefix="${prefix}"/>
     <xacro:right_finger prefix="${prefix}"/>
+    <xacro:tcp prefix="${prefix}"/>
     <xacro:robotiq_arg2f_transmission prefix="${prefix}" hw_interface="${transmission_hw_interface}"/>
   </xacro:macro>
 </robot>
