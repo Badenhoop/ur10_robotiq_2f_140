@@ -3,4 +3,10 @@
   <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
   <xacro:include filename="$(find ur10_robotiq_2f_140_description)/urdf/robotiq_arg2f_140_model_macro.xacro" />
   <xacro:robotiq_arg2f_140 prefix="" transmission_hw_interface="$(arg transmission_hw_interface)" />
+  <link name="world" />
+	<joint name="world_joint" type="fixed">
+		<parent link="world" />
+		<child link = "robotiq_arg2f_base_link" />
+		<origin xyz="0 0 0" rpy="0 0 0" />
+	</joint>
 </robot>
